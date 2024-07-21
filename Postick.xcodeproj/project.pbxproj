@@ -1,0 +1,603 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		49A0B9122C4ADFA500E970B3 /* PostickApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0B9112C4ADFA500E970B3 /* PostickApp.swift */; };
+		49A0B9142C4ADFA500E970B3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0B9132C4ADFA500E970B3 /* ContentView.swift */; };
+		49A0B9162C4ADFA900E970B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49A0B9152C4ADFA900E970B3 /* Assets.xcassets */; };
+		49A0B9192C4ADFA900E970B3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49A0B9182C4ADFA900E970B3 /* Preview Assets.xcassets */; };
+		49A0B9232C4ADFA900E970B3 /* PostickTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0B9222C4ADFA900E970B3 /* PostickTests.swift */; };
+		49A0B92D2C4ADFA900E970B3 /* PostickUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0B92C2C4ADFA900E970B3 /* PostickUITests.swift */; };
+		49A0B92F2C4ADFA900E970B3 /* PostickUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0B92E2C4ADFA900E970B3 /* PostickUITestsLaunchTests.swift */; };
+		49A0B93C2C4AE0A600E970B3 /* toy_biplane_idle.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 49A0B93B2C4AE0A600E970B3 /* toy_biplane_idle.usdz */; };
+		49A0B93E2C4AE76200E970B3 /* ARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0B93D2C4AE76200E970B3 /* ARViewContainer.swift */; };
+		49A0B9402C4B0D3200E970B3 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0B93F2C4B0D3200E970B3 /* SheetView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		49A0B91F2C4ADFA900E970B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49A0B9062C4ADFA500E970B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 49A0B90D2C4ADFA500E970B3;
+			remoteInfo = Postick;
+		};
+		49A0B9292C4ADFA900E970B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49A0B9062C4ADFA500E970B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 49A0B90D2C4ADFA500E970B3;
+			remoteInfo = Postick;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		49A0B90E2C4ADFA500E970B3 /* Postick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Postick.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		49A0B9112C4ADFA500E970B3 /* PostickApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostickApp.swift; sourceTree = "<group>"; };
+		49A0B9132C4ADFA500E970B3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		49A0B9152C4ADFA900E970B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		49A0B9182C4ADFA900E970B3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		49A0B91E2C4ADFA900E970B3 /* PostickTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PostickTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		49A0B9222C4ADFA900E970B3 /* PostickTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostickTests.swift; sourceTree = "<group>"; };
+		49A0B9282C4ADFA900E970B3 /* PostickUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PostickUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		49A0B92C2C4ADFA900E970B3 /* PostickUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostickUITests.swift; sourceTree = "<group>"; };
+		49A0B92E2C4ADFA900E970B3 /* PostickUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostickUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		49A0B93B2C4AE0A600E970B3 /* toy_biplane_idle.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy_biplane_idle.usdz; sourceTree = "<group>"; };
+		49A0B93D2C4AE76200E970B3 /* ARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewContainer.swift; sourceTree = "<group>"; };
+		49A0B93F2C4B0D3200E970B3 /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		49A0B90B2C4ADFA500E970B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49A0B91B2C4ADFA900E970B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49A0B9252C4ADFA900E970B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		49A0B9052C4ADFA500E970B3 = {
+			isa = PBXGroup;
+			children = (
+				49A0B9102C4ADFA500E970B3 /* Postick */,
+				49A0B9212C4ADFA900E970B3 /* PostickTests */,
+				49A0B92B2C4ADFA900E970B3 /* PostickUITests */,
+				49A0B90F2C4ADFA500E970B3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		49A0B90F2C4ADFA500E970B3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				49A0B90E2C4ADFA500E970B3 /* Postick.app */,
+				49A0B91E2C4ADFA900E970B3 /* PostickTests.xctest */,
+				49A0B9282C4ADFA900E970B3 /* PostickUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		49A0B9102C4ADFA500E970B3 /* Postick */ = {
+			isa = PBXGroup;
+			children = (
+				49A0B9112C4ADFA500E970B3 /* PostickApp.swift */,
+				49A0B93D2C4AE76200E970B3 /* ARViewContainer.swift */,
+				49A0B93F2C4B0D3200E970B3 /* SheetView.swift */,
+				49A0B9132C4ADFA500E970B3 /* ContentView.swift */,
+				49A0B9152C4ADFA900E970B3 /* Assets.xcassets */,
+				49A0B93B2C4AE0A600E970B3 /* toy_biplane_idle.usdz */,
+				49A0B9172C4ADFA900E970B3 /* Preview Content */,
+			);
+			path = Postick;
+			sourceTree = "<group>";
+		};
+		49A0B9172C4ADFA900E970B3 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				49A0B9182C4ADFA900E970B3 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		49A0B9212C4ADFA900E970B3 /* PostickTests */ = {
+			isa = PBXGroup;
+			children = (
+				49A0B9222C4ADFA900E970B3 /* PostickTests.swift */,
+			);
+			path = PostickTests;
+			sourceTree = "<group>";
+		};
+		49A0B92B2C4ADFA900E970B3 /* PostickUITests */ = {
+			isa = PBXGroup;
+			children = (
+				49A0B92C2C4ADFA900E970B3 /* PostickUITests.swift */,
+				49A0B92E2C4ADFA900E970B3 /* PostickUITestsLaunchTests.swift */,
+			);
+			path = PostickUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		49A0B90D2C4ADFA500E970B3 /* Postick */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49A0B9322C4ADFA900E970B3 /* Build configuration list for PBXNativeTarget "Postick" */;
+			buildPhases = (
+				49A0B90A2C4ADFA500E970B3 /* Sources */,
+				49A0B90B2C4ADFA500E970B3 /* Frameworks */,
+				49A0B90C2C4ADFA500E970B3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Postick;
+			productName = Postick;
+			productReference = 49A0B90E2C4ADFA500E970B3 /* Postick.app */;
+			productType = "com.apple.product-type.application";
+		};
+		49A0B91D2C4ADFA900E970B3 /* PostickTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49A0B9352C4ADFA900E970B3 /* Build configuration list for PBXNativeTarget "PostickTests" */;
+			buildPhases = (
+				49A0B91A2C4ADFA900E970B3 /* Sources */,
+				49A0B91B2C4ADFA900E970B3 /* Frameworks */,
+				49A0B91C2C4ADFA900E970B3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				49A0B9202C4ADFA900E970B3 /* PBXTargetDependency */,
+			);
+			name = PostickTests;
+			productName = PostickTests;
+			productReference = 49A0B91E2C4ADFA900E970B3 /* PostickTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		49A0B9272C4ADFA900E970B3 /* PostickUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49A0B9382C4ADFA900E970B3 /* Build configuration list for PBXNativeTarget "PostickUITests" */;
+			buildPhases = (
+				49A0B9242C4ADFA900E970B3 /* Sources */,
+				49A0B9252C4ADFA900E970B3 /* Frameworks */,
+				49A0B9262C4ADFA900E970B3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				49A0B92A2C4ADFA900E970B3 /* PBXTargetDependency */,
+			);
+			name = PostickUITests;
+			productName = PostickUITests;
+			productReference = 49A0B9282C4ADFA900E970B3 /* PostickUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		49A0B9062C4ADFA500E970B3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					49A0B90D2C4ADFA500E970B3 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					49A0B91D2C4ADFA900E970B3 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 49A0B90D2C4ADFA500E970B3;
+					};
+					49A0B9272C4ADFA900E970B3 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 49A0B90D2C4ADFA500E970B3;
+					};
+				};
+			};
+			buildConfigurationList = 49A0B9092C4ADFA500E970B3 /* Build configuration list for PBXProject "Postick" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 49A0B9052C4ADFA500E970B3;
+			productRefGroup = 49A0B90F2C4ADFA500E970B3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				49A0B90D2C4ADFA500E970B3 /* Postick */,
+				49A0B91D2C4ADFA900E970B3 /* PostickTests */,
+				49A0B9272C4ADFA900E970B3 /* PostickUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		49A0B90C2C4ADFA500E970B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49A0B9192C4ADFA900E970B3 /* Preview Assets.xcassets in Resources */,
+				49A0B93C2C4AE0A600E970B3 /* toy_biplane_idle.usdz in Resources */,
+				49A0B9162C4ADFA900E970B3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49A0B91C2C4ADFA900E970B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49A0B9262C4ADFA900E970B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		49A0B90A2C4ADFA500E970B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49A0B9142C4ADFA500E970B3 /* ContentView.swift in Sources */,
+				49A0B9122C4ADFA500E970B3 /* PostickApp.swift in Sources */,
+				49A0B9402C4B0D3200E970B3 /* SheetView.swift in Sources */,
+				49A0B93E2C4AE76200E970B3 /* ARViewContainer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49A0B91A2C4ADFA900E970B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49A0B9232C4ADFA900E970B3 /* PostickTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49A0B9242C4ADFA900E970B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49A0B92F2C4ADFA900E970B3 /* PostickUITestsLaunchTests.swift in Sources */,
+				49A0B92D2C4ADFA900E970B3 /* PostickUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		49A0B9202C4ADFA900E970B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 49A0B90D2C4ADFA500E970B3 /* Postick */;
+			targetProxy = 49A0B91F2C4ADFA900E970B3 /* PBXContainerItemProxy */;
+		};
+		49A0B92A2C4ADFA900E970B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 49A0B90D2C4ADFA500E970B3 /* Postick */;
+			targetProxy = 49A0B9292C4ADFA900E970B3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		49A0B9302C4ADFA900E970B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		49A0B9312C4ADFA900E970B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		49A0B9332C4ADFA900E970B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Postick/Preview Content\"";
+				DEVELOPMENT_TEAM = N3F355WLLX;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "\"AR purpose\"";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "CSE-438.Postick";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		49A0B9342C4ADFA900E970B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Postick/Preview Content\"";
+				DEVELOPMENT_TEAM = N3F355WLLX;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "\"AR purpose\"";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "CSE-438.Postick";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		49A0B9362C4ADFA900E970B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "CSE-438.PostickTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Postick.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Postick";
+			};
+			name = Debug;
+		};
+		49A0B9372C4ADFA900E970B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "CSE-438.PostickTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Postick.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Postick";
+			};
+			name = Release;
+		};
+		49A0B9392C4ADFA900E970B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "CSE-438.PostickUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Postick;
+			};
+			name = Debug;
+		};
+		49A0B93A2C4ADFA900E970B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "CSE-438.PostickUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Postick;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		49A0B9092C4ADFA500E970B3 /* Build configuration list for PBXProject "Postick" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49A0B9302C4ADFA900E970B3 /* Debug */,
+				49A0B9312C4ADFA900E970B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		49A0B9322C4ADFA900E970B3 /* Build configuration list for PBXNativeTarget "Postick" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49A0B9332C4ADFA900E970B3 /* Debug */,
+				49A0B9342C4ADFA900E970B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		49A0B9352C4ADFA900E970B3 /* Build configuration list for PBXNativeTarget "PostickTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49A0B9362C4ADFA900E970B3 /* Debug */,
+				49A0B9372C4ADFA900E970B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		49A0B9382C4ADFA900E970B3 /* Build configuration list for PBXNativeTarget "PostickUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49A0B9392C4ADFA900E970B3 /* Debug */,
+				49A0B93A2C4ADFA900E970B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 49A0B9062C4ADFA500E970B3 /* Project object */;
+}
