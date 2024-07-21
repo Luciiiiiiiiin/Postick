@@ -8,34 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
-        
-    @State var isPresented: Bool = false
-    @State private var isScanning: Bool = true
     @State private var modelName: String = "toy_biplane_idle"
 
     var body: some View {
-        ZStack {
-            VStack {
-                Image("biplane")
-                    .resizable()
-                    .scaledToFit()
-                    .foregroundStyle(.tint)
-                    .clipShape(RoundedRectangle(cornerSize: CGSize(width: 20, height: 20)))
-                    .padding(24)
+        ZStack(alignment: .topTrailing) {
+            ARViewContainer(modelName: $modelName)
+                .ignoresSafeArea(edges: .all)
 
-                Button {
-                    isPresented.toggle()
-                } label: {
-                    Label("View in AR", systemImage: "arkit")
-                }
-                .buttonStyle(BorderedProminentButtonStyle())
-                .padding(24)
+            Button {
+                // Exit or close logic here, if needed
+            } label: {
+                Image(systemName: "xmark.circle")
+                    .font(.largeTitle)
+                    .foregroundColor(.black)
+                    .background(.ultraThinMaterial)
+                    .clipShape(Circle())
             }
-            .padding()
-            
-            .fullScreenCover(isPresented: $isPresented, content: {
-                SheetView(isPresented: $isPresented)
-            })
+            .padding(24)
         }
     }
 }

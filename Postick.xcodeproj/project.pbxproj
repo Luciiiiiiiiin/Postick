@@ -16,7 +16,6 @@
 		49A0B92F2C4ADFA900E970B3 /* PostickUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0B92E2C4ADFA900E970B3 /* PostickUITestsLaunchTests.swift */; };
 		49A0B93C2C4AE0A600E970B3 /* toy_biplane_idle.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 49A0B93B2C4AE0A600E970B3 /* toy_biplane_idle.usdz */; };
 		49A0B93E2C4AE76200E970B3 /* ARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0B93D2C4AE76200E970B3 /* ARViewContainer.swift */; };
-		49A0B9402C4B0D3200E970B3 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0B93F2C4B0D3200E970B3 /* SheetView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +48,6 @@
 		49A0B92E2C4ADFA900E970B3 /* PostickUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostickUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		49A0B93B2C4AE0A600E970B3 /* toy_biplane_idle.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy_biplane_idle.usdz; sourceTree = "<group>"; };
 		49A0B93D2C4AE76200E970B3 /* ARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewContainer.swift; sourceTree = "<group>"; };
-		49A0B93F2C4B0D3200E970B3 /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +100,6 @@
 			children = (
 				49A0B9112C4ADFA500E970B3 /* PostickApp.swift */,
 				49A0B93D2C4AE76200E970B3 /* ARViewContainer.swift */,
-				49A0B93F2C4B0D3200E970B3 /* SheetView.swift */,
 				49A0B9132C4ADFA500E970B3 /* ContentView.swift */,
 				49A0B9152C4ADFA900E970B3 /* Assets.xcassets */,
 				49A0B93B2C4AE0A600E970B3 /* toy_biplane_idle.usdz */,
@@ -269,7 +266,6 @@
 			files = (
 				49A0B9142C4ADFA500E970B3 /* ContentView.swift in Sources */,
 				49A0B9122C4ADFA500E970B3 /* PostickApp.swift in Sources */,
-				49A0B9402C4B0D3200E970B3 /* SheetView.swift in Sources */,
 				49A0B93E2C4AE76200E970B3 /* ARViewContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

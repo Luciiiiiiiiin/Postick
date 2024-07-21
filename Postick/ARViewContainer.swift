@@ -14,12 +14,10 @@ import ARKit
 struct ARViewContainer: UIViewRepresentable {
     
     @Binding var modelName: String
-    //@Binding private var isScanning: Bool
     
-//    public init(modelName: Binding<String>, isScanning: Binding<Bool>) {
-//        self._modelName = modelName
-//        self._isScanning = isScanning
-//    }
+    public init(modelName: Binding<String>) {
+        self._modelName = modelName
+    }
 
     func makeUIView(context: Context) -> ARView {
         let arView = ARView(frame: .zero)
@@ -34,17 +32,13 @@ struct ARViewContainer: UIViewRepresentable {
         let panGesture = UIPanGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handlePan(_:)))
         arView.addGestureRecognizer(panGesture)
         
-        //arView.session.delegate = context.coordinator as? ARSessionDelegate
+        // Used to debug
         arView.debugOptions = [.showFeaturePoints, .showWorldOrigin, .showSceneUnderstanding, .showAnchorGeometry, .showAnchorOrigins]
         
         return arView
     }
 
     func updateUIView(_ uiView: ARView, context: Context) {
-//        let anchorEntity = AnchorEntity(plane: .any)
-//        guard let modelEntity = try? Entity.load(named: modelName) else { return }
-//        anchorEntity.addChild(modelEntity)
-//        uiView.scene.addAnchor(anchorEntity)
         
         if context.coordinator.anchorEntity == nil {
             let anchorEntity = AnchorEntity(plane: .any)
@@ -67,16 +61,6 @@ struct ARViewContainer: UIViewRepresentable {
         init(_ parent: ARViewContainer) {
             self.parent = parent
         }
-
-//        func session(_ session: ARSession, didUpdate frame: ARFrame) {
-//            let featurePoints = frame.rawFeaturePoints?.points.count ?? 0
-//
-//            if featurePoints > 100 {
-//                DispatchQueue.main.async {
-//                    self.parent.isScanning = false
-//                }
-//            }
-//        }
         
         @objc func handlePan(_ gesture: UIPanGestureRecognizer) {
             guard let arView = gesture.view as? ARView else { return }
