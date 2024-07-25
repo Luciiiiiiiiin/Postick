@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		494077C62C51BF1800780FFF /* CollageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494077C52C51BF1800780FFF /* CollageView.swift */; };
+		494077C82C51ECD400780FFF /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 494077C72C51ECD400780FFF /* Storyboard.storyboard */; };
 		49A0B9122C4ADFA500E970B3 /* PostickApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0B9112C4ADFA500E970B3 /* PostickApp.swift */; };
 		49A0B9142C4ADFA500E970B3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0B9132C4ADFA500E970B3 /* ContentView.swift */; };
 		49A0B9162C4ADFA900E970B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49A0B9152C4ADFA900E970B3 /* Assets.xcassets */; };
@@ -16,6 +18,7 @@
 		49A0B92F2C4ADFA900E970B3 /* PostickUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0B92E2C4ADFA900E970B3 /* PostickUITestsLaunchTests.swift */; };
 		49A0B93C2C4AE0A600E970B3 /* toy_biplane_idle.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 49A0B93B2C4AE0A600E970B3 /* toy_biplane_idle.usdz */; };
 		49A0B93E2C4AE76200E970B3 /* ARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0B93D2C4AE76200E970B3 /* ARViewContainer.swift */; };
+		49FA680C2C4DCE0100E1400C /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FA680B2C4DCE0100E1400C /* PhotoPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		494077C52C51BF1800780FFF /* CollageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollageView.swift; sourceTree = "<group>"; };
+		494077C72C51ECD400780FFF /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		49A0B90E2C4ADFA500E970B3 /* Postick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Postick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49A0B9112C4ADFA500E970B3 /* PostickApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostickApp.swift; sourceTree = "<group>"; };
 		49A0B9132C4ADFA500E970B3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -48,6 +53,7 @@
 		49A0B92E2C4ADFA900E970B3 /* PostickUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostickUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		49A0B93B2C4AE0A600E970B3 /* toy_biplane_idle.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy_biplane_idle.usdz; sourceTree = "<group>"; };
 		49A0B93D2C4AE76200E970B3 /* ARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewContainer.swift; sourceTree = "<group>"; };
+		49FA680B2C4DCE0100E1400C /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +107,9 @@
 				49A0B9112C4ADFA500E970B3 /* PostickApp.swift */,
 				49A0B93D2C4AE76200E970B3 /* ARViewContainer.swift */,
 				49A0B9132C4ADFA500E970B3 /* ContentView.swift */,
+				49FA680B2C4DCE0100E1400C /* PhotoPicker.swift */,
+				494077C52C51BF1800780FFF /* CollageView.swift */,
+				494077C72C51ECD400780FFF /* Storyboard.storyboard */,
 				49A0B9152C4ADFA900E970B3 /* Assets.xcassets */,
 				49A0B93B2C4AE0A600E970B3 /* toy_biplane_idle.usdz */,
 				49A0B9172C4ADFA900E970B3 /* Preview Content */,
@@ -238,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49A0B9192C4ADFA900E970B3 /* Preview Assets.xcassets in Resources */,
+				494077C82C51ECD400780FFF /* Storyboard.storyboard in Resources */,
 				49A0B93C2C4AE0A600E970B3 /* toy_biplane_idle.usdz in Resources */,
 				49A0B9162C4ADFA900E970B3 /* Assets.xcassets in Resources */,
 			);
@@ -264,8 +274,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49FA680C2C4DCE0100E1400C /* PhotoPicker.swift in Sources */,
 				49A0B9142C4ADFA500E970B3 /* ContentView.swift in Sources */,
 				49A0B9122C4ADFA500E970B3 /* PostickApp.swift in Sources */,
+				494077C62C51BF1800780FFF /* CollageView.swift in Sources */,
 				49A0B93E2C4AE76200E970B3 /* ARViewContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,6 +446,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "\"AR purpose\"";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "This app requires access to your photo library to save collaged images.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -464,6 +477,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "\"AR purpose\"";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "This app requires access to your photo library to save collaged images.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -489,6 +503,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N3F355WLLX;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				MARKETING_VERSION = 1.0;
@@ -508,6 +523,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N3F355WLLX;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				MARKETING_VERSION = 1.0;
@@ -526,6 +542,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N3F355WLLX;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "CSE-438.PostickUITests";
@@ -543,6 +560,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N3F355WLLX;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "CSE-438.PostickUITests";

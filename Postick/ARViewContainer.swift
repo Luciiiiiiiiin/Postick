@@ -37,7 +37,7 @@ struct ARViewContainer: UIViewRepresentable {
         
         return arView
     }
-
+//
     func updateUIView(_ uiView: ARView, context: Context) {
         
         if context.coordinator.anchorEntity == nil {
