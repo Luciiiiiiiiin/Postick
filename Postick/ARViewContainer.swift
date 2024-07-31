@@ -18,8 +18,18 @@ struct ARViewContainer: UIViewRepresentable {
 
         let config = ARWorldTrackingConfiguration()
         config.environmentTexturing = .automatic
+        config.planeDetection = [.horizontal, .vertical] // Enable plane detection
         arView.session.run(config)
         arView.session.delegate = context.coordinator
+
+        // Add ARCoachingOverlayView
+        let coachingOverlay = ARCoachingOverlayView()
+        coachingOverlay.session = arView.session
+        coachingOverlay.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        coachingOverlay.goal = .horizontalPlane // Set goal as needed
+        arView.addSubview(coachingOverlay)
+        coachingOverlay.activatesAutomatically = true
+        coachingOverlay.setActive(true, animated: true)
 
         // Add Pan Gesture Recognizer
         let panGesture = UIPanGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handlePan(_:)))
