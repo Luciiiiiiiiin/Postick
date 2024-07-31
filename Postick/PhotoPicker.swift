@@ -22,7 +22,7 @@ struct PhotoPicker: UIViewControllerRepresentable {
             var images: [UIImage] = []
             let dispatchGroup = DispatchGroup()
 
-            for result in results.prefix(2) {
+            for result in results.prefix(parent.selectionLimit) {
                 dispatchGroup.enter()
                 result.itemProvider.loadObject(ofClass: UIImage.self) { object, error in
                     if let image = object as? UIImage {
@@ -39,6 +39,7 @@ struct PhotoPicker: UIViewControllerRepresentable {
     }
 
     var onPhotosSelected: ([UIImage]) -> Void
+    var selectionLimit: Int
 
     func makeCoordinator() -> Coordinator {
         Coordinator(parent: self)
@@ -47,7 +48,7 @@ struct PhotoPicker: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> PHPickerViewController {
         var config = PHPickerConfiguration()
         config.filter = .images
-        config.selectionLimit = 2
+        config.selectionLimit = selectionLimit
         let picker = PHPickerViewController(configuration: config)
         picker.delegate = context.coordinator
         return picker

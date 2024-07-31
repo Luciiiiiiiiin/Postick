@@ -5,20 +5,19 @@
 //  Created by Yuxuan Liu on 2024/7/19.
 //
 
-
 import SwiftUI
-
 struct ContentView: View {
-    @State private var modelName: String = "toy_biplane_idle"
+    @State private var selectedImage: UIImage? = nil
     @State private var showPhotoPicker = false
     @State private var navigateToCollageView = false
     @State private var isCollageButtonTapped = false
+    @State private var isPhotoButtonTapped = false
     @State private var selectedImages: [UIImage] = []
 
     var body: some View {
         NavigationStack {
             ZStack {
-                ARViewContainer(modelName: $modelName)
+                ARViewContainer(selectedImage: $selectedImage)
                     .edgesIgnoringSafeArea(.all)
 
                 VStack {
@@ -26,6 +25,7 @@ struct ContentView: View {
                     HStack {
                         Button(action: {
                             isCollageButtonTapped = false
+                            isPhotoButtonTapped = true
                             showPhotoPicker = true
                         }) {
                             Image(systemName: "photo")
@@ -39,6 +39,7 @@ struct ContentView: View {
 
                         Button(action: {
                             isCollageButtonTapped = true
+                            isPhotoButtonTapped = false
                             showPhotoPicker = true
                         }) {
                             Image("collage")
@@ -63,10 +64,12 @@ struct ContentView: View {
                         if selectedImages.count == 2 {
                             navigateToCollageView = true
                         }
+                    } else if isPhotoButtonTapped {
+                        selectedImage = images.first
+                        isPhotoButtonTapped = false // Reset the flag
                     }
-                })
+                }, selectionLimit: isCollageButtonTapped ? 2 : 1)
             }
         }
     }
 }
-
