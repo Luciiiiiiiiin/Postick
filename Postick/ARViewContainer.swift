@@ -33,6 +33,10 @@ struct ARViewContainer: UIViewRepresentable {
         let rotationGesture = UIRotationGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handleRotation(_:)))
         arView.addGestureRecognizer(rotationGesture)
 
+        // Add Pinch Gesture Recognizer for Zoom
+        let pinchGesture = UIPinchGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handlePinch(_:)))
+        arView.addGestureRecognizer(pinchGesture)
+
         return arView
     }
 
@@ -59,6 +63,7 @@ struct ARViewContainer: UIViewRepresentable {
         var isTouchingImage = false
         var attachedPlane: ARRaycastQuery.TargetAlignment?
         var lastRotation: Float = 0.0 // Store the last rotation value
+        var lastScale: Float = 1.0 // Store the last scale value
 
         init(_ parent: ARViewContainer) {
             self.parent = parent
@@ -127,6 +132,22 @@ struct ARViewContainer: UIViewRepresentable {
 
             if gesture.state == .ended {
                 lastRotation = 0.0
+            }
+        }
+
+        @objc func handlePinch(_ gesture: UIPinchGestureRecognizer) {
+            guard let modelEntity = modelEntity else { return }
+
+            if gesture.state == .began {
+                lastScale = 1.0
+            }
+
+            let scale = Float(gesture.scale) / lastScale
+            lastScale = Float(gesture.scale)
+            modelEntity.scale *= SIMD3<Float>(repeating: scale)
+
+            if gesture.state == .ended {
+                lastScale = 1.0
             }
         }
     }
