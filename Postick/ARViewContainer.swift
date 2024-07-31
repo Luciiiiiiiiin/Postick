@@ -5,6 +5,7 @@
 //  Created by Yuxuan Liu on 2024/7/19.
 //  
 
+
 import Foundation
 import SwiftUI
 import RealityKit
@@ -17,26 +18,28 @@ struct ARViewContainer: UIViewRepresentable {
         let arView = ARView(frame: .zero)
 
         let config = ARWorldTrackingConfiguration()
-        config.planeDetection = [.horizontal, .vertical]
         config.environmentTexturing = .automatic
-
+        config.planeDetection = [.horizontal, .vertical]
         arView.session.run(config)
+        arView.session.delegate = context.coordinator
 
         // Add Pan Gesture Recognizer
         let panGesture = UIPanGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handlePan(_:)))
         arView.addGestureRecognizer(panGesture)
-
-        // Used to debug
-        //arView.debugOptions = [.showFeaturePoints, .showWorldOrigin, .showSceneUnderstanding, .showAnchorGeometry, .showAnchorOrigins]
+        
+        // Add Tap Gesture Recognizer
+        let tapGesture = UITapGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handleTap(_:)))
+        arView.addGestureRecognizer(tapGesture)
+        
+        arView.debugOptions = [.showFeaturePoints, .showWorldOrigin, .showSceneUnderstanding, .showAnchorGeometry, .showAnchorOrigins]
 
         return arView
     }
 
     func updateUIView(_ uiView: ARView, context: Context) {
         if let image = selectedImage, context.coordinator.anchorEntity == nil {
-            let anchorEntity = AnchorEntity(plane: .any)
+            let anchorEntity = AnchorEntity(world: .zero)
             let modelEntity = createImageEntity(image: image)
-            modelEntity.transform.rotation = simd_quatf(angle: -.pi / 2, axis: [1, 0, 0])
             anchorEntity.addChild(modelEntity)
             uiView.scene.addAnchor(anchorEntity)
             context.coordinator.anchorEntity = anchorEntity
@@ -47,21 +50,38 @@ struct ARViewContainer: UIViewRepresentable {
         Coordinator(self)
     }
 
-    class Coordinator: NSObject {
+    class Coordinator: NSObject, ARSessionDelegate {
         var parent: ARViewContainer
         var anchorEntity: AnchorEntity?
+        var isTouchingImage = false
+        var attachedPlane: ARRaycastQuery.TargetAlignment?
 
         init(_ parent: ARViewContainer) {
             self.parent = parent
+            super.init()
         }
 
         @objc func handlePan(_ gesture: UIPanGestureRecognizer) {
             guard let arView = gesture.view as? ARView else { return }
 
             let location = gesture.location(in: arView)
-            if gesture.state == .changed {
+
+            if gesture.state == .began {
                 let hits = arView.raycast(from: location, allowing: .estimatedPlane, alignment: .any)
                 if let firstHit = hits.first {
+                    isTouchingImage = true
+                    attachedPlane = firstHit.targetAlignment
+                } else {
+                    isTouchingImage = false
+                }
+                print(isTouchingImage)
+            }
+
+            if gesture.state == .changed && isTouchingImage {
+                guard let alignment = attachedPlane else { return }
+                let query: ARRaycastQuery? = arView.makeRaycastQuery(from: location, allowing: .estimatedPlane, alignment: alignment)
+                let results:[ARRaycastResult] = arView.session.raycast(query!)
+                if let firstHit = results.first {
                     let transform = firstHit.worldTransform
                     if let anchorEntity = anchorEntity {
                         anchorEntity.position = [transform.columns.3.x, transform.columns.3.y, transform.columns.3.z]
@@ -70,6 +90,20 @@ struct ARViewContainer: UIViewRepresentable {
                 } else {
                     print("No hit detected.")
                 }
+            }
+        }
+
+        @objc func handleTap(_ gesture: UITapGestureRecognizer) {
+            guard let arView = gesture.view as? ARView else { return }
+
+            let location = gesture.location(in: arView)
+            let hits = arView.hitTest(location)
+
+            if let firstHit = hits.first {
+                print("Tapped entity: \(firstHit.entity)")
+                // Handle tap on the model entity here
+            } else {
+                print("No hit detected on the model entity.")
             }
         }
     }
