@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+
 struct ContentView: View {
     @State private var selectedImage: UIImage? = nil
     @State private var showPhotoPicker = false
@@ -13,12 +14,31 @@ struct ContentView: View {
     @State private var isCollageButtonTapped = false
     @State private var isPhotoButtonTapped = false
     @State private var selectedImages: [UIImage] = []
+    @State private var capturedImage: UIImage?
+    @State private var showBlackScreen = false
 
     var body: some View {
         NavigationStack {
             ZStack {
-                ARViewContainer(selectedImage: $selectedImage)
-                    .edgesIgnoringSafeArea(.all)
+                ARViewContainer(selectedImage: $selectedImage, onPhotoCaptured: { image in
+                    capturedImage = image
+                    // Handle the captured image as needed
+                    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil) // Save to photo library
+                    withAnimation {
+                        showBlackScreen = true
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        withAnimation {
+                            showBlackScreen = false
+                        }
+                    }
+                })
+                .edgesIgnoringSafeArea(.all)
+
+                if showBlackScreen {
+                    Color.black
+                        .edgesIgnoringSafeArea(.all)
+                }
 
                 VStack {
                     Spacer()
@@ -31,7 +51,24 @@ struct ContentView: View {
                             Image(systemName: "photo")
                                 .resizable()
                                 .frame(width: 40, height: 40)
-                                .foregroundColor(.blue)
+                                .foregroundColor(.black)
+                        }
+                        .padding()
+
+                        Spacer()
+
+                        Button(action: {
+                            // Trigger photo capture
+                            NotificationCenter.default.post(name: Notification.Name("capturePhoto"), object: nil)
+                        }) {
+                            Circle()
+                                .fill(Color.white)
+                                .frame(width: 70, height: 70)
+                                .overlay(
+                                    Circle()
+                                        .stroke(Color.black, lineWidth: 2)
+                                )
+                                .shadow(radius: 2)
                         }
                         .padding()
 
@@ -44,7 +81,7 @@ struct ContentView: View {
                         }) {
                             Image("collage")
                                 .resizable()
-                                .frame(width: 40, height: 40)
+                                .frame(width: 60, height: 60)
                                 .foregroundColor(.blue)
                         }
                         .padding()

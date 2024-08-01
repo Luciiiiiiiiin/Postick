@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		494077C62C51BF1800780FFF /* CollageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494077C52C51BF1800780FFF /* CollageView.swift */; };
-		494077C82C51ECD400780FFF /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 494077C72C51ECD400780FFF /* Storyboard.storyboard */; };
 		494077CA2C51EF1100780FFF /* Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494077C92C51EF1100780FFF /* Template.swift */; };
 		49A0B9122C4ADFA500E970B3 /* PostickApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0B9112C4ADFA500E970B3 /* PostickApp.swift */; };
 		49A0B9142C4ADFA500E970B3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0B9132C4ADFA500E970B3 /* ContentView.swift */; };
@@ -41,7 +40,6 @@
 
 /* Begin PBXFileReference section */
 		494077C52C51BF1800780FFF /* CollageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollageView.swift; sourceTree = "<group>"; };
-		494077C72C51ECD400780FFF /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		494077C92C51EF1100780FFF /* Template.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Template.swift; sourceTree = "<group>"; };
 		49A0B90E2C4ADFA500E970B3 /* Postick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Postick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49A0B9112C4ADFA500E970B3 /* PostickApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostickApp.swift; sourceTree = "<group>"; };
@@ -112,7 +110,6 @@
 				49FA680B2C4DCE0100E1400C /* PhotoPicker.swift */,
 				494077C52C51BF1800780FFF /* CollageView.swift */,
 				494077C92C51EF1100780FFF /* Template.swift */,
-				494077C72C51ECD400780FFF /* Storyboard.storyboard */,
 				49A0B9152C4ADFA900E970B3 /* Assets.xcassets */,
 				49A0B93B2C4AE0A600E970B3 /* toy_biplane_idle.usdz */,
 				49A0B9172C4ADFA900E970B3 /* Preview Content */,
@@ -250,7 +247,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				49A0B9192C4ADFA900E970B3 /* Preview Assets.xcassets in Resources */,
-				494077C82C51ECD400780FFF /* Storyboard.storyboard in Resources */,
 				49A0B93C2C4AE0A600E970B3 /* toy_biplane_idle.usdz in Resources */,
 				49A0B9162C4ADFA900E970B3 /* Assets.xcassets in Resources */,
 			);

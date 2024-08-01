@@ -12,6 +12,7 @@ import ARKit
 
 struct ARViewContainer: UIViewRepresentable {
     @Binding var selectedImage: UIImage?
+    var onPhotoCaptured: (UIImage) -> Void
 
     func makeUIView(context: Context) -> ARView {
         let arView = ARView(frame: .zero)
@@ -31,43 +32,61 @@ struct ARViewContainer: UIViewRepresentable {
         coachingOverlay.activatesAutomatically = true
         coachingOverlay.setActive(true, animated: true)
 
-        // Add Pan Gesture Recognizer
+        // Add gesture recognizers
         let panGesture = UIPanGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handlePan(_:)))
         arView.addGestureRecognizer(panGesture)
-        
-        // Add Long Press Gesture Recognizer
+
         let longPressGesture = UILongPressGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handleLongPress(_:)))
         arView.addGestureRecognizer(longPressGesture)
 
-        // Add Rotation Gesture Recognizer
         let rotationGesture = UIRotationGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handleRotation(_:)))
         arView.addGestureRecognizer(rotationGesture)
 
-        // Add Pinch Gesture Recognizer for Zoom
         let pinchGesture = UIPinchGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handlePinch(_:)))
         arView.addGestureRecognizer(pinchGesture)
+
+        // Pass the ARView instance to the Coordinator
+        context.coordinator.arView = arView
+
+        // Add notification observer for photo capture
+        NotificationCenter.default.addObserver(context.coordinator, selector: #selector(Coordinator.capturePhoto), name: Notification.Name("capturePhoto"), object: nil)
 
         return arView
     }
 
     func updateUIView(_ uiView: ARView, context: Context) {
-        if let image = selectedImage {
-            let anchorEntity = AnchorEntity(world: .zero)
-            let modelEntity = createImageEntity(image: image)
-            modelEntity.generateCollisionShapes(recursive: true) // Ensure collision shapes are generated
-            anchorEntity.addChild(modelEntity)
-            uiView.scene.addAnchor(anchorEntity)
-            context.coordinator.anchorEntities.append(anchorEntity)
-            context.coordinator.modelEntities.append(modelEntity)
+        guard let image = selectedImage else { return }
+
+        let imageIdentifier = image.accessibilityIdentifier ?? UUID().uuidString
+        print("Updating UIView with image: \(imageIdentifier)")
+
+        // Check if there's already an anchor with the image
+        if context.coordinator.modelEntities.contains(where: { $0.name == imageIdentifier }) {
+            print("Image with identifier \(imageIdentifier) already exists. Skipping.")
+            return
         }
+
+        let anchorEntity = AnchorEntity(world: .zero)
+        let modelEntity = createImageEntity(image: image)
+        modelEntity.name = imageIdentifier
+        modelEntity.generateCollisionShapes(recursive: true) // Ensure collision shapes are generated
+        anchorEntity.addChild(modelEntity)
+        uiView.scene.addAnchor(anchorEntity)
+        context.coordinator.anchorEntities.append(anchorEntity)
+        context.coordinator.modelEntities.append(modelEntity)
+
+        // Clear selected image to prevent re-adding
+        selectedImage = nil
+        print("Added image with identifier \(imageIdentifier) to AR view.")
     }
 
     func makeCoordinator() -> Coordinator {
-        Coordinator(self)
+        Coordinator(self, onPhotoCaptured: onPhotoCaptured)
     }
 
     class Coordinator: NSObject, ARSessionDelegate {
         var parent: ARViewContainer
+        var onPhotoCaptured: (UIImage) -> Void
         var anchorEntities: [AnchorEntity] = []
         var modelEntities: [ModelEntity] = []
         var selectedEntity: ModelEntity? // Track the selected entity
@@ -75,14 +94,16 @@ struct ARViewContainer: UIViewRepresentable {
         var attachedPlane: ARRaycastQuery.TargetAlignment?
         var lastRotation: Float = 0.0 // Store the last rotation value
         var lastScale: Float = 1.0 // Store the last scale value
+        weak var arView: ARView? // Store a weak reference to the ARView
 
-        init(_ parent: ARViewContainer) {
+        init(_ parent: ARViewContainer, onPhotoCaptured: @escaping (UIImage) -> Void) {
             self.parent = parent
+            self.onPhotoCaptured = onPhotoCaptured
             super.init()
         }
 
         @objc func handlePan(_ gesture: UIPanGestureRecognizer) {
-            guard let arView = gesture.view as? ARView else { return }
+            guard let arView = arView else { return }
 
             let location = gesture.location(in: arView)
 
@@ -118,7 +139,7 @@ struct ARViewContainer: UIViewRepresentable {
         }
 
         @objc func handleLongPress(_ gesture: UILongPressGestureRecognizer) {
-            guard let arView = gesture.view as? ARView else { return }
+            guard let arView = arView else { return }
 
             if gesture.state == .began {
                 let location = gesture.location(in: arView)
@@ -137,7 +158,7 @@ struct ARViewContainer: UIViewRepresentable {
         }
 
         @objc func handleRotation(_ gesture: UIRotationGestureRecognizer) {
-            guard let arView = gesture.view as? ARView else { return }
+            guard let arView = arView else { return }
 
             if gesture.state == .began {
                 lastRotation = 0.0
@@ -158,7 +179,7 @@ struct ARViewContainer: UIViewRepresentable {
         }
 
         @objc func handlePinch(_ gesture: UIPinchGestureRecognizer) {
-            guard let arView = gesture.view as? ARView else { return }
+            guard let arView = arView else { return }
 
             if gesture.state == .began {
                 lastScale = 1.0
@@ -177,6 +198,20 @@ struct ARViewContainer: UIViewRepresentable {
                 }
             }
         }
+
+        @objc func capturePhoto() {
+            guard let arView = arView else { return }
+            
+            let size = arView.bounds.size
+            UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
+            arView.drawHierarchy(in: arView.bounds, afterScreenUpdates: true)
+            let image = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+
+            if let capturedImage = image {
+                onPhotoCaptured(capturedImage)
+            }
+        }
     }
 
     private func createImageEntity(image: UIImage) -> ModelEntity {
@@ -189,6 +224,14 @@ struct ARViewContainer: UIViewRepresentable {
         materialWithTexture.color = .init(texture: .init(texture))
         modelEntity.model?.materials = [materialWithTexture]
 
+        // Set the initial scale to be smaller
+        let initialScale: Float = 0.5 // Adjust this value to set the desired initial size
+        modelEntity.scale = [initialScale, initialScale, initialScale]
+
+        // Set a unique identifier for the model entity
+        modelEntity.name = image.accessibilityIdentifier ?? UUID().uuidString
+
         return modelEntity
     }
 }
+
