@@ -20,28 +20,23 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                ARViewContainer(selectedImage: $selectedImage, onPhotoCaptured: { image in
-                    capturedImage = image
-                    // Handle the captured image as needed
-                    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil) // Save to photo library
-                    withAnimation {
-                        showBlackScreen = true
-                    }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                        withAnimation {
-                            showBlackScreen = false
-                        }
-                    }
-                })
-                .edgesIgnoringSafeArea(.all)
-
-                if showBlackScreen {
-                    Color.black
-                        .edgesIgnoringSafeArea(.all)
-                }
-
                 VStack {
-                    Spacer()
+                    ARViewContainer(selectedImage: $selectedImage, onPhotoCaptured: { image in
+                        capturedImage = image
+                        // Handle the captured image as needed
+                        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil) // Save to photo library
+                        withAnimation {
+                            showBlackScreen = true
+                        }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { // Extended duration
+                            withAnimation {
+                                showBlackScreen = false
+                            }
+                        }
+                    })
+                    .edgesIgnoringSafeArea(.all)
+
+                    // Bottom bar for buttons
                     HStack {
                         Button(action: {
                             isCollageButtonTapped = false
@@ -86,6 +81,13 @@ struct ContentView: View {
                         }
                         .padding()
                     }
+                    .padding(.bottom)
+                    .background(Color.white)
+                }
+
+                if showBlackScreen {
+                    Color.black
+                        .edgesIgnoringSafeArea(.all)
                 }
 
                 NavigationLink(destination: CollageView(images: selectedImages), isActive: $navigateToCollageView) {
