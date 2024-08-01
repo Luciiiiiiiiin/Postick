@@ -5,6 +5,7 @@
 //  Created by Yuxuan Liu on 2024/7/19.
 //
 
+
 import SwiftUI
 
 struct ContentView: View {
@@ -45,10 +46,12 @@ struct ContentView: View {
                         }) {
                             Image(systemName: "photo")
                                 .resizable()
-                                .frame(width: 40, height: 40)
+                                .frame(width: 50, height: 40)
                                 .foregroundColor(.black)
+                                .background(Color.white)
                         }
-                        .padding()
+                        .frame(width: 70, height: 70) // Match the circle button's frame
+                        .cornerRadius(10) // Add corner radius to match the circle button
 
                         Spacer()
 
@@ -65,7 +68,6 @@ struct ContentView: View {
                                 )
                                 .shadow(radius: 2)
                         }
-                        .padding()
 
                         Spacer()
 
@@ -76,12 +78,15 @@ struct ContentView: View {
                         }) {
                             Image("collage")
                                 .resizable()
-                                .frame(width: 60, height: 60)
+                                .frame(width: 70, height: 70)
                                 .foregroundColor(.blue)
+                                .background(Color.white)
                         }
-                        .padding()
+                        .frame(width: 70, height: 70) // Match the circle button's frame
+                        .cornerRadius(10) // Add corner radius to match the circle button
                     }
                     .padding(.bottom)
+                    .frame(height: 100) // height of the tab
                     .background(Color.white)
                 }
 
