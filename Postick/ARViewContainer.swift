@@ -3,7 +3,7 @@
 //  Postick
 //
 //  Created by Yuxuan Liu on 2024/7/19.
-//
+//  THis is the file that takes charge of control of the AR View
 
 import Foundation
 import SwiftUI
@@ -27,7 +27,7 @@ struct ARViewContainer: UIViewRepresentable {
         let coachingOverlay = ARCoachingOverlayView()
         coachingOverlay.session = arView.session
         coachingOverlay.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        coachingOverlay.goal = .horizontalPlane // Set goal as needed
+        coachingOverlay.goal = .verticalPlane // Set goal as needed
         arView.addSubview(coachingOverlay)
         coachingOverlay.activatesAutomatically = true
         coachingOverlay.setActive(true, animated: true)
@@ -234,4 +234,6 @@ struct ARViewContainer: UIViewRepresentable {
         return modelEntity
     }
 }
+
+
 

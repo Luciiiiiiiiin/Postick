@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		494077C62C51BF1800780FFF /* CollageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494077C52C51BF1800780FFF /* CollageView.swift */; };
 		494077CA2C51EF1100780FFF /* Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494077C92C51EF1100780FFF /* Template.swift */; };
-		496407712C5B341800BD7545 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 496407702C5B341800BD7545 /* Storyboard.storyboard */; };
 		49A0B9122C4ADFA500E970B3 /* PostickApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0B9112C4ADFA500E970B3 /* PostickApp.swift */; };
 		49A0B9142C4ADFA500E970B3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0B9132C4ADFA500E970B3 /* ContentView.swift */; };
 		49A0B9162C4ADFA900E970B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49A0B9152C4ADFA900E970B3 /* Assets.xcassets */; };
@@ -17,7 +16,6 @@
 		49A0B9232C4ADFA900E970B3 /* PostickTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0B9222C4ADFA900E970B3 /* PostickTests.swift */; };
 		49A0B92D2C4ADFA900E970B3 /* PostickUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0B92C2C4ADFA900E970B3 /* PostickUITests.swift */; };
 		49A0B92F2C4ADFA900E970B3 /* PostickUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0B92E2C4ADFA900E970B3 /* PostickUITestsLaunchTests.swift */; };
-		49A0B93C2C4AE0A600E970B3 /* toy_biplane_idle.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 49A0B93B2C4AE0A600E970B3 /* toy_biplane_idle.usdz */; };
 		49A0B93E2C4AE76200E970B3 /* ARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0B93D2C4AE76200E970B3 /* ARViewContainer.swift */; };
 		49FA680C2C4DCE0100E1400C /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FA680B2C4DCE0100E1400C /* PhotoPicker.swift */; };
 /* End PBXBuildFile section */
@@ -42,7 +40,7 @@
 /* Begin PBXFileReference section */
 		494077C52C51BF1800780FFF /* CollageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollageView.swift; sourceTree = "<group>"; };
 		494077C92C51EF1100780FFF /* Template.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Template.swift; sourceTree = "<group>"; };
-		496407702C5B341800BD7545 /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		496407722C5B543800BD7545 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		49A0B90E2C4ADFA500E970B3 /* Postick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Postick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49A0B9112C4ADFA500E970B3 /* PostickApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostickApp.swift; sourceTree = "<group>"; };
 		49A0B9132C4ADFA500E970B3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,7 +51,6 @@
 		49A0B9282C4ADFA900E970B3 /* PostickUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PostickUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49A0B92C2C4ADFA900E970B3 /* PostickUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostickUITests.swift; sourceTree = "<group>"; };
 		49A0B92E2C4ADFA900E970B3 /* PostickUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostickUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		49A0B93B2C4AE0A600E970B3 /* toy_biplane_idle.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy_biplane_idle.usdz; sourceTree = "<group>"; };
 		49A0B93D2C4AE76200E970B3 /* ARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewContainer.swift; sourceTree = "<group>"; };
 		49FA680B2C4DCE0100E1400C /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,6 +83,7 @@
 		49A0B9052C4ADFA500E970B3 = {
 			isa = PBXGroup;
 			children = (
+				496407722C5B543800BD7545 /* README.md */,
 				49A0B9102C4ADFA500E970B3 /* Postick */,
 				49A0B9212C4ADFA900E970B3 /* PostickTests */,
 				49A0B92B2C4ADFA900E970B3 /* PostickUITests */,
@@ -112,9 +110,7 @@
 				49FA680B2C4DCE0100E1400C /* PhotoPicker.swift */,
 				494077C52C51BF1800780FFF /* CollageView.swift */,
 				494077C92C51EF1100780FFF /* Template.swift */,
-				496407702C5B341800BD7545 /* Storyboard.storyboard */,
 				49A0B9152C4ADFA900E970B3 /* Assets.xcassets */,
-				49A0B93B2C4AE0A600E970B3 /* toy_biplane_idle.usdz */,
 				49A0B9172C4ADFA900E970B3 /* Preview Content */,
 			);
 			path = Postick;
@@ -250,8 +246,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				49A0B9192C4ADFA900E970B3 /* Preview Assets.xcassets in Resources */,
-				496407712C5B341800BD7545 /* Storyboard.storyboard in Resources */,
-				49A0B93C2C4AE0A600E970B3 /* toy_biplane_idle.usdz in Resources */,
 				49A0B9162C4ADFA900E970B3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
