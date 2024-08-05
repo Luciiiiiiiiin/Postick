@@ -5,26 +5,28 @@
 //  Created by Yuxuan Liu on 2024/7/19.
 //  THis is the file that takes charge of control of the AR View
 
-
 import Foundation
 import SwiftUI
 import RealityKit
 import ARKit
 
+// ARViewContainer struct conforms to UIViewRepresentable to integrate ARView into SwiftUI
 struct ARViewContainer: UIViewRepresentable {
-    @Binding var selectedImage: UIImage?
-    var onPhotoCaptured: (UIImage) -> Void
+    @Binding var selectedImage: UIImage? // Binding to the selected image
+    var onPhotoCaptured: (UIImage) -> Void // Callback when a photo is captured
 
+    // Create and configure the ARView
     func makeUIView(context: Context) -> ARView {
         let arView = ARView(frame: .zero)
 
+        // Configure AR session
         let config = ARWorldTrackingConfiguration()
         config.environmentTexturing = .automatic
         config.planeDetection = [.horizontal, .vertical] // Enable plane detection
         arView.session.run(config)
         arView.session.delegate = context.coordinator
 
-        // Add ARCoachingOverlayView
+        // Add ARCoachingOverlayView to assist users
         let coachingOverlay = ARCoachingOverlayView()
         coachingOverlay.session = arView.session
         coachingOverlay.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -58,6 +60,7 @@ struct ARViewContainer: UIViewRepresentable {
         return arView
     }
 
+    // Update ARView when the selected image changes
     func updateUIView(_ uiView: ARView, context: Context) {
         guard let image = selectedImage else { return }
 
@@ -84,10 +87,12 @@ struct ARViewContainer: UIViewRepresentable {
         print("Added image with identifier \(imageIdentifier) to AR view.")
     }
 
+    // Create a Coordinator to manage AR session and gestures
     func makeCoordinator() -> Coordinator {
         Coordinator(self, onPhotoCaptured: onPhotoCaptured)
     }
 
+    // Coordinator class to manage AR session and gestures
     class Coordinator: NSObject, ARSessionDelegate {
         var parent: ARViewContainer
         var onPhotoCaptured: (UIImage) -> Void
@@ -106,6 +111,7 @@ struct ARViewContainer: UIViewRepresentable {
             super.init()
         }
 
+        // Handle pan gesture
         @objc func handlePan(_ gesture: UIPanGestureRecognizer) {
             guard let arView = arView else { return }
 
@@ -143,6 +149,7 @@ struct ARViewContainer: UIViewRepresentable {
             }
         }
 
+        // Handle long press gesture
         @objc func handleLongPress(_ gesture: UILongPressGestureRecognizer) {
             guard let arView = arView else { return }
 
@@ -165,6 +172,7 @@ struct ARViewContainer: UIViewRepresentable {
             }
         }
 
+        // Handle rotation gesture
         @objc func handleRotation(_ gesture: UIRotationGestureRecognizer) {
             guard let arView = arView else { return }
 
@@ -195,6 +203,7 @@ struct ARViewContainer: UIViewRepresentable {
             }
         }
 
+        // Handle pinch gesture
         @objc func handlePinch(_ gesture: UIPinchGestureRecognizer) {
             guard let arView = arView else { return }
 
@@ -225,6 +234,7 @@ struct ARViewContainer: UIViewRepresentable {
             }
         }
 
+        // Handle tap gesture
         @objc func handleTap(_ gesture: UITapGestureRecognizer) {
             guard let arView = arView else { return }
 
@@ -243,6 +253,7 @@ struct ARViewContainer: UIViewRepresentable {
             }
         }
 
+        // Capture photo from ARView
         @objc func capturePhoto() {
             guard let arView = arView else { return }
             
@@ -257,15 +268,15 @@ struct ARViewContainer: UIViewRepresentable {
             }
         }
 
+        // Add a blue border to the selected entity
         func addBorderMaterial(for entity: ModelEntity) {
             // Remove existing blue borders from all entities
             for modelEntity in modelEntities {
                 removeBorderMaterial(for: modelEntity)
             }
-
-            // Create a custom blue color
-            let customBlue = UIColor(red: 0x23 / 255, green: 0xe8 / 255, blue: 0xfe / 255, alpha: 1.0)
-            let borderMaterial = SimpleMaterial(color: customBlue , isMetallic: false)
+            
+            // Create a green border material
+            let borderMaterial = SimpleMaterial(color: .green , isMetallic: false)
 
             // Create a blue border material
             let borderWidth: Float = 0.05
@@ -282,10 +293,12 @@ struct ARViewContainer: UIViewRepresentable {
             entity.addChild(borderEntity)
         }
 
+        // Remove the border from the entity
         func removeBorderMaterial(for entity: ModelEntity) {
             entity.children.removeAll()
         }
 
+        // Clear all borders from all entities
         func clearAllBorders() {
             for modelEntity in modelEntities {
                 removeBorderMaterial(for: modelEntity)
@@ -293,6 +306,7 @@ struct ARViewContainer: UIViewRepresentable {
         }
     }
 
+    // Create a ModelEntity from the UIImage
     private func createImageEntity(image: UIImage) -> ModelEntity {
         // Get the aspect ratio of the image
         let aspectRatio = Float(image.size.width / image.size.height)
