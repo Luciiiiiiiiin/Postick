@@ -55,30 +55,48 @@ struct ARViewContainer: UIViewRepresentable {
     }
 
     func updateUIView(_ uiView: ARView, context: Context) {
+        // Ensure there's a selected image; if not, exit the function.
         guard let image = selectedImage else { return }
 
+        // Generate a unique identifier for the image. If the image already has an accessibilityIdentifier, use it.
+        // Otherwise, generate a new UUID.
         let imageIdentifier = image.accessibilityIdentifier ?? UUID().uuidString
         print("Updating UIView with image: \(imageIdentifier)")
 
-        // Check if there's already an anchor with the image
+        // Check if an anchor with the same image identifier already exists in the modelEntities array.
+        // If it exists, skip adding the new image to avoid duplication.
         if context.coordinator.modelEntities.contains(where: { $0.name == imageIdentifier }) {
             print("Image with identifier \(imageIdentifier) already exists. Skipping.")
             return
         }
 
+        // Create a new anchor entity at the world origin (position [0, 0, 0]).
         let anchorEntity = AnchorEntity(world: .zero)
+        
+        // Create a model entity from the selected image.
         let modelEntity = createImageEntity(image: image)
+        
+        // Assign the unique identifier to the model entity's name property.
         modelEntity.name = imageIdentifier
-        modelEntity.generateCollisionShapes(recursive: true) // Ensure collision shapes are generated
+        
+        // Generate collision shapes for the model entity to enable interaction with gestures.
+        modelEntity.generateCollisionShapes(recursive: true)
+        
+        // Add the model entity as a child of the anchor entity.
         anchorEntity.addChild(modelEntity)
+        
+        // Add the anchor entity to the AR view's scene.
         uiView.scene.addAnchor(anchorEntity)
+        
+        // Append the new anchor entity and model entity to the coordinator's respective arrays for tracking.
         context.coordinator.anchorEntities.append(anchorEntity)
         context.coordinator.modelEntities.append(modelEntity)
 
-        // Clear selected image to prevent re-adding
+        // Clear the selected image to prevent it from being re-added in future updates.
         selectedImage = nil
         print("Added image with identifier \(imageIdentifier) to AR view.")
     }
+
 
     func makeCoordinator() -> Coordinator {
         Coordinator(self, onPhotoCaptured: onPhotoCaptured)
@@ -213,15 +231,30 @@ struct ARViewContainer: UIViewRepresentable {
             }
         }
     }
-
+    
     private func createImageEntity(image: UIImage) -> ModelEntity {
-        let plane = MeshResource.generatePlane(width: 1.0, height: 1.0)
+        // Calculate the aspect ratio of the image
+        let aspectRatio = image.size.width / image.size.height
+
+        // Create a plane mesh with dimensions that match the image's aspect ratio
+        let planeWidth: Float = 1.0
+        let planeHeight: Float = 1.0 / Float(aspectRatio)
+        let plane = MeshResource.generatePlane(width: planeWidth, height: planeHeight)
+
+        // Create a default unlit material
         let material = UnlitMaterial(color: .white)
+
+        // Create a model entity using the plane mesh and the white material
         let modelEntity = ModelEntity(mesh: plane, materials: [material])
 
+        // Create a texture resource from the UIImage's CGImage
         let texture = try! TextureResource.generate(from: image.cgImage!, options: .init(semantic: nil))
+
+        // Create a new unlit material and set its color to the generated texture
         var materialWithTexture = UnlitMaterial()
         materialWithTexture.color = .init(texture: .init(texture))
+
+        // Apply the textured material to the model entity
         modelEntity.model?.materials = [materialWithTexture]
 
         // Set the initial scale to be smaller
@@ -233,7 +266,8 @@ struct ARViewContainer: UIViewRepresentable {
 
         return modelEntity
     }
-}
 
+
+}
 
 
